@@ -16,9 +16,9 @@
 # under the License.
 
 #!/usr/bin/env python3
-import importlib
+#import importlib
 
-from gi._gi import source_new
+#from gi._gi import source_new
 from ryu.base import app_manager
 from ryu.controller import mac_to_port
 from ryu.controller import ofp_event
@@ -101,6 +101,7 @@ class SPRouter(app_manager.RyuApp):
         self.topo_net = fattreetopology.FattreeNet(4)
         # source - https://github.com/Ehsan70/RyuApps/blob/master/TopoDiscoveryInRyu.md
         # defining mac address table as dictionary for lookup
+        self.srcip_to_port_table = {}
         self.mac_to_port_table = {}
         # for holding topology data structure
         self.topo_raw_switches = []
