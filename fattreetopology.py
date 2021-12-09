@@ -138,7 +138,7 @@ class FattreeNet(Topo):
                 j += 1
             self.edge_switch_list.update({"edge" + str(iterator): NodeLab("s" + str(current_switch_count),
                                                                        "10." + str(i) + "." + str(j) + ".1")})
-            self.switch_topo.update({"edge" + str(iterator): self.addSwitch("s" + str(current_switch_count))})
+            self.switch_topo.update({"edge" + str(iterator): self.addSwitch("s" + str(current_switch_count),dpid=str(current_switch_count+1))})
             #self.edge_topo.update({"edge" + str(iterator): self.switch_topo["edge" + str(iterator)]})
             info("\nEdge switch", current_switch_count,
                  "; IP-Address = ", self.edge_switch_list["edge" + str(iterator)].type)
@@ -161,7 +161,7 @@ class FattreeNet(Topo):
             self.aggregation_switch_list.update(
                 {"aggregator" + str(iterator): NodeLab("s" + str(current_switch_count),
                                                     "10." + str(i) + "." + str(j) + ".1")})
-            self.switch_topo.update({"aggregator" + str(iterator): self.addSwitch("s" + str(current_switch_count))})
+            self.switch_topo.update({"aggregator" + str(iterator): self.addSwitch("s" + str(current_switch_count),dpid=str(current_switch_count+1))})
             #self.aggregation_topo.update({"aggregator" + str(iterator):self.switch_topo["aggregator" + str(iterator)]})
             info("\nAggregator switch ", current_switch_count,
                  "; IP-Address = ", self.aggregation_switch_list["aggregator" + str(iterator)].type)
@@ -179,7 +179,7 @@ class FattreeNet(Topo):
             self.core_switch_list.update({"core" + str(iterator): NodeLab("s" + str(current_switch_count),
                                                                        "10." + str(self.num_ports) + "." + str(
                                                                            i) + "." + str(j))})
-            self.switch_topo.update({"core" + str(iterator): self.addSwitch("s" + str(current_switch_count))})
+            self.switch_topo.update({"core" + str(iterator): self.addSwitch("s" + str(current_switch_count),dpid=str(current_switch_count+1))})
             #self.core_topo.update({"core" + str(iterator): self.switch_topo["core" + str(iterator)]})
             info("\nCore switch ", current_switch_count, "; IP-Address = ",
                  self.core_switch_list["core" + str(iterator)].type)
